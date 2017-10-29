@@ -1,10 +1,16 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+    November 2017 Chris Gonzalez 
 */
-/* 
-    Created on : Oct 26, 2017, 9:57:43 AM
-    Author     : cgonz
-*/
-
+h1,h2,a{
+    font-family: Permanent marker;
+}
+a:link, a:active,a:visited {
+    text-decoration: none;
+    color: #000;
+}
+li a{
+    font-size: 1.3em;
+}
+p{
+    font-size: 1em;
+}

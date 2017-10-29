@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+    November 2017 Chris Gonzalez 
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>
+            Where to Find Us - King's Wok
+        </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+        <link href="css/app-stylesheet.css" rel="stylesheet" type="text/css"/>
+        <style>
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+        </style>
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body>        
+        <div class="container">
+            <!--Start Main Header and Navbar-->
+            <h1>
+                <a href="index.html">King's Wok</a>
+            </h1>
+            <nav class="navbar navbar-brand">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="location">Where to Find Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </nav>      
+            <!--End Main Header and Navbar-->
+            <h2>
+                Where to Find Us
+            </h2>
+            <p>
+                Find us at
+            </p>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var uluru = {lat: 43.0968, lng: -88.3494};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 14,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map,
+                        title: "King's Wok"
+                    });
+                }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA093kN94SycuIqyl7X_tK36Ox9mHUT6zk&callback=initMap"
+            type="text/javascript"></script>
+        </div>
     </body>
 </html>
