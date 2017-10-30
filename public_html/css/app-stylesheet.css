@@ -4,13 +4,94 @@
 h1,h2,a{
     font-family: Permanent marker;
 }
-a:link, a:active,a:visited {
-    text-decoration: none;
-    color: #000;
-}
 li a{
     font-size: 1.3em;
 }
 p{
     font-size: 1em;
 }
+
+body, .ui-widget{
+    font-family: 'Montserrat',sans-serif;
+}
+
+body{
+    background-color: #E4F2E3;
+}
+nav.navbar-inverse{
+    background-color: #009956;
+    border: #45A649;
+    font-size: 1.4em;
+}
+a.navbar-brand{
+    font-size: 1.8em;
+}
+a,
+a:visited,
+a:focus {
+    color: black !important;
+}
+
+a:hover{
+    color: white !important;
+}
+
+a:active{
+    color: #E4F2E3 !important;
+}
+/*center navbar elements*/
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+#menu-accordion{
+    width: inherit;
+}
+
+div.carousel-caption{
+    font-size: x-large;
+    color: yellow;
+    text-shadow: 2px 2px black;
+}
+
+#myCarousel.carousel{
+    width: 630px;
+    margin: auto;
+}
+.info{
+    font-size: 1.2em;
+}
+
+footer{
+    text-align: center;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+nav.sidebar, nav.sidebar:hover a, 
+nav.sidebar:active a, nav.sidebar:visited a, nav.sidebar:focus a{
+    background-color: #9ACF96;
+    border: #E4F2E3;    
+}
+
+nav.sidebar{
+    font-size: 1.4em;
+}
+
+.nav>li>a:focus{
+    background-color: transparent;
+}
+
