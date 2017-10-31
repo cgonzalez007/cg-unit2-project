@@ -1,6 +1,7 @@
 /* 
  * November 2017 Chris Gonzalez 
  */
+
 $(function () {
     $('#menu-accordion').accordion({
         collapsible: true,
@@ -8,8 +9,17 @@ $(function () {
     });
 
     initFirebase();
-
     populateLunchSpecials();
+
+    $('#lunch-specials').click(function(e){
+        $('#items').empty();
+        populateLunchSpecials();
+    });
+    
+    $('#special-combo-platter').click(function(e){
+        $('#items').empty();
+        populateSpecialComboPlatters();
+    });
 
 //    $("#items").append(card);
 
@@ -29,34 +39,88 @@ function initFirebase() {
 
 }
 
-function populateLunchSpecials() {
-    var $items = $('#items');
-
-    var query = firebase.database().ref("site/lunch-specials");
+function populateLunchSpecials() {   
+    
+    $('.category-info').hide();
+    
+    $('#lunch-specials-info').show();
+    
+    var query = firebase.database().ref("site/lunch-specials").orderByChild("number");
 
     query.once("value")
             .then(function (snapshot) {
                 snapshot.forEach(function (childSnapshot) {
 
-                    var card = '<div class="card col-md-3 col-sm-12" style="width: 20rem;">'
-                            + '<img class="card-img-top" src="'+ childSnapshot.child("img-src").val() +'" alt="'+ childSnapshot.child("name").val() +'">'
+                    var card = '<div class="card col-md-3 col-sm-12 menu-card text-center" style="width: 20rem;">'
+                            + '<br><img class="card-img-top img-responsive img-thumbnail menu-img modal-content" src="'+ childSnapshot.child("img-src").val() +'" alt="'+ childSnapshot.child("name").val() +'">'
                             + '<div class="card-block">'
-                            + '<h4 class="card-title">'+ childSnapshot.child("name").val() +'</h4>'
+                            + '<h4 class="card-title"><br>' + childSnapshot.child("name").val() + ' ' + '(' + 'L.'+ childSnapshot.child("number").val() + ')' 
+                            + '<br><br>$' + childSnapshot.child("price").val().toFixed(2) + '</h4>'
                             + '<p class="card-text"'+ childSnapshot.child("description").val() +'</p>'
-                            + '<a href="#" class="btn btn-primary">Go somewhere</a>'
+                            + '<a href="#" class="btn btn-default add-btn">Add</a>'
                             + '</div>'
                             + '</div>'
                             ;
 
 
 
-                    $items.append(card);
+                    $('#items').append(card);
 
 
                 });
             });
 
 }
+
+function populateSpecialComboPlatters(){
+    $('.category-info').hide();
+    
+    $('#special-combo-platter-info').show();
+    
+    var query = firebase.database().ref("site/lunch-specials").orderByChild("name");
+
+    query.once("value")
+            .then(function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+
+                    var card = '<div class="card col-md-3 col-sm-12 menu-card text-center" style="width: 20rem;">'
+                            + '<br><img class="card-img-top img-responsive img-thumbnail menu-img modal-content" src="'+ childSnapshot.child("img-src").val() +'" alt="'+ childSnapshot.child("name").val() +'">'
+                            + '<div class="card-block">'
+                            + '<h4 class="card-title"><br>' + childSnapshot.child("name").val() + ' ' + '(' + 'L.'+ childSnapshot.child("number").val() + ')' 
+                            + '<br><br>$' + childSnapshot.child("price").val().toFixed(2) + '</h4>'
+                            + '<p class="card-text"'+ childSnapshot.child("description").val() +'</p>'
+                            + '<a href="#" class="btn btn-default add-btn">Add</a>'
+                            + '</div>'
+                            + '</div>'
+                            ;
+
+
+
+                    $('#items').append(card);
+
+
+                });
+            });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // could be used to display items...
 
