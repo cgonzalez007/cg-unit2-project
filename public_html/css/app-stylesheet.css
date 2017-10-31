@@ -150,4 +150,5 @@ select{
 #im-done-btn{
     position: absolute;
     right: 20px;
+    font-family: 'Montserrat', sans-serif !important;
 }
