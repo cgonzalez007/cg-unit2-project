@@ -11,6 +11,8 @@ $(function () {
 
     populateLunchSpecials();
 
+//    $("#items").append(card);
+
 });
 
 function initFirebase() {
@@ -28,19 +30,42 @@ function initFirebase() {
 }
 
 function populateLunchSpecials() {
-    var $lunchSpecials = $('#lunch-specials');
+    var $items = $('#items');
 
-    var ref = firebase.database().ref("site/lunch-specials");
+    var query = firebase.database().ref("site/lunch-specials");
 
-    ref.orderByChild('number')
-    .once('value', function (snapshot) {
+    query.once("value")
+            .then(function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
 
-        snapshot.forEach(function (childSnapshot) {
-//
-//            var value = childSnapshot.val();                       
-//            
-//            $lunchSpecials.append("<li></li>").html(value.name);
-        });
-               
-    });        
+                    var card = '<div class="card col-md-3 col-sm-12" style="width: 20rem;">'
+                            + '<img class="card-img-top" src="'+ childSnapshot.child("img-src").val() +'" alt="'+ childSnapshot.child("name").val() +'">'
+                            + '<div class="card-block">'
+                            + '<h4 class="card-title">'+ childSnapshot.child("name").val() +'</h4>'
+                            + '<p class="card-text"'+ childSnapshot.child("description").val() +'</p>'
+                            + '<a href="#" class="btn btn-primary">Go somewhere</a>'
+                            + '</div>'
+                            + '</div>'
+                            ;
+
+
+
+                    $items.append(card);
+
+
+                });
+            });
+
 }
+
+// could be used to display items...
+
+var card = '<div class="card col-md-3 col-sm-12" style="width: 20rem;">'
+        + '<img class="card-img-top" src="..." alt="Card image cap">'
+        + '<div class="card-block">'
+        + '<h4 class="card-title">Card title</h4>'
+        + '<p class="card-text">Some quick example text.</p>'
+        + '<a href="#" class="btn btn-primary">Go somewhere</a>'
+        + '</div>'
+        + '</div>'
+        ;
