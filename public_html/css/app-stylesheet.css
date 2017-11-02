@@ -110,7 +110,7 @@ select{
 .menu-card{
     background-color: #cce7cb;
 }
-.navbar, .menu-card{
+.navbar, .menu-card, .step{
     box-shadow: 5px 5px 3px grey;
 }
 .menu-img{
@@ -163,4 +163,8 @@ body{
     padding-right: 10px;
     padding-top: 3px;
     padding-bottom: 5px;
+}
+
+.go-back:hover,.go-back:focus{
+    text-decoration: none;
 }
