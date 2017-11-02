@@ -1,33 +1,125 @@
-<div id="menu-accordion" class="col-2 col-sm-2">
-    <h3>
-        Lunch Specials
-    </h3>
-    <div>
-        <ul id="lunch-specials"></ul>
-    </div>
-    <h3>
-        Appetizers
-    </h3>
-    <div>
-        <ul id="appetizers"></ul>
-    </div>
-    <h3>
-        Chef's Specialties
-    </h3>
-    <div>
-        <ul id="chefs-specialties"></ul>
-    </div>
-    <h3>
-        Special Combination Platter
-    </h3>
-    <div id="special-combo-platter">
-        <ul></ul>
-    </div>         
-</div>
+<!DOCTYPE html>
+<!--
+    November 2017 Chris Gonzalez 
+-->
+<html>
+    <head>
+        <title>
+            Home - King's Wok
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--button to press to see added items-->
-<a href="#" id="see-added-items-btn" class="btn btn-default">
-    <img src="img/favicon.png" alt="See added items" width="35" height="35">
-</a>
+        <!--Font Awesome vers. 4.7.0 CSS-->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!--Fav icon, also website logo; From: https://thenounproject.com/term/chinese-takeout-box/3553/-->
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+        <!--Bootstrap CSS vers. 3.3.7-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!--Custom JqueryUI CSS file v1.12.1-->
+        <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>  
+        <!--'Permanent Marker' Google Font-->
+        <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+        <!--'Monserrat' Google Font-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">     
+        <!--App Stylesheet-->                                                                
+        <link href="css/app-stylesheet.css" rel="stylesheet" type="text/css"/>
+
+        <!--JQuery vers. 3.2.1-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <!--Bootstrap JS vers. 3.3.7-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--Custom JqueryUI JS file v1.12.1-->
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <!--Firebase Vers. 4.6.0-->
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+
+        <!--Index JS-->
+        <script src="js/index.js"></script>          
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                Ideas
+            </h1>
+
+            <div id="menu-accordion" class="col-2 col-sm-2">
+                <h3>
+                    Lunch Specials
+                </h3>
+                <div>
+                    <ul id="lunch-specials"></ul>
+                </div>
+                <h3>
+                    Appetizers
+                </h3>
+                <div>
+                    <ul id="appetizers"></ul>
+                </div>
+                <h3>
+                    Chef's Specialties
+                </h3>
+                <div>
+                    <ul id="chefs-specialties"></ul>
+                </div>
+                <h3>
+                    Special Combination Platter
+                </h3>
+                <div id="special-combo-platter">
+                    <ul></ul>
+                </div>         
+            </div>
+            
+            <br>
+            
+            <!--button to press to see added items-->
+            <a href="#" id="see-added-items-btn" class="btn btn-default">
+                <img src="img/favicon.png" alt="See added items" width="35" height="35">
+            </a>
+            
+            <br>
+            <br>
+            
+            <!--to display items-->
+            <div class="card col-md-3 col-xs-12 col-sm-3 menu-card text-center" style="width: 20rem;">
+                <br><img class="card-img-top img-responsive img-thumbnail menu-img modal-content" src="menu-img/hunan-shrimp.jpg" alt="none">
+                <div class="card-block">
+                    <h4 class="card-title">
+
+                    </h4>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-default add-btn">Add</a>
+                </div>
+            </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <footer>
+            <br>
+            <br>
+            <br>
+            Chris Gonzalez 2017
+        </footer>
+    </body>
+</html>

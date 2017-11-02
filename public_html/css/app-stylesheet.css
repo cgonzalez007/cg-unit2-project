@@ -168,3 +168,16 @@ body{
 .go-back:hover,.go-back:focus{
     text-decoration: none;
 }
+
+.menu-nav{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1em;
+}
+
+.nav-item{
+    width:100%;
+}
+
+.nav-link{
+    padding: 5px !important;
+}
