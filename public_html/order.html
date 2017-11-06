@@ -164,26 +164,56 @@
                             <h4 class="card-title">
 
                             </h4>
-                            <p class="card-text"></p>
-                            <a href="#" class="btn btn-default add-btn">Add</a>
+                            <p class="card-text"></p>                            
                         </div>
                     </div>
                     <div id="add-item" title="Add to Your Order">
                         <form id="item-form">
-                            <fieldset>         
-
-                                <label for="name">
+                            <fieldset>     
+                                <div id="rice" style="display: none;" class="additional-option">
+                                    <h4>
+                                        Rice 
+                                    </h4>
+                                    <div id="rice-option-template" class="template" style="display: none;">
+                                        <input type="radio" name="rice-option"  value="" class="text ui-widget-content ui-corner-all" required>                          
+                                        <br>
+                                    </div> 
+                                </div>
+                                <div id="meat" style="display: none;" class="additional-option">
+                                    <h4>
+                                        Meat 
+                                    </h4>
+                                    <div id="meat-option-template" class="template" style="display: none;">
+                                        <input type="radio" name="meat-option"  value="" class="text ui-widget-content ui-corner-all" required>                       
+                                        <br>
+                                    </div>                                                                     </div>
+                                <div id="side" class="additional-option" style="display: none;">
+                                    <h4>
+                                        Side 
+                                    </h4>
+                                    <div id="side-option-template" class="template" style="display: none;">
+                                        <input type="radio" name="side-option"  value="" class="text ui-widget-content ui-corner-all" required>                                                                      
+                                        <br>   
+                                    </div>         
+                                </div>
+                                <br>
+                                <label for="qty">
                                     How many do you want?
                                 </label>
                                 <br>
-                                <input type="number" name="qty" id="qty" value="1" min="1" max="5" class="text ui-widget-content ui-corner-all" required>
+                                <input type="number" name="qty" id="qty" value="1" min="1" max="5" class="text ui-widget-content ui-corner-all" placeholder="Qty" required>
                                 <br>
                                 <label for="name">
                                     Who is this item for?
                                 </label>
-                                <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all" required>
-                                <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                                <br>
+                                <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all" placeholder="Name">
+                                <br>
+                                <label for="comments">
+                                    Comments
+                                </label>
+                                <br>
+                                <textarea name="comments" id="comments" class="text ui-widget-content ui-corner-all" placeholder="Comments"></textarea>
                             </fieldset>
                         </form>
                     </div>
