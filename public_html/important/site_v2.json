@@ -1,46 +1,98 @@
 {
     "site": {
-        "lunch-specials":{
-            "vegetable-chow-mein": {
-                "number": 1,
-                "name": "Vegetable Chow mein",
-                "description": "Loaded with fresh vegetables and with Chinese seasonings such as dark soy sauce and toasted sesame oil.",
-                "price": 5.25,
-                "rice": ["White","Fried","Pork Fried Rice"],
-                "side": ["Hot & Sour Soup", "Chicken Noodle Soup", "Egg Drop Soup", "Chicken Egg Roll"],               
-                "meat": null,
-                "img-src": "menu-img/veg-chow-mein.jpg"
+        "categories": {
+            "lunch-specials": {                
+                "cat-name": "Lunch Specials",
+                "description": "Lunch specials are the perfect way to have lunch. Each lunch comes with a choice of rice (white, fried, and pork fried), and a choice of side (Egg roll or soup).<br> Available Open to 3:00pm",
+                "items": [
+                    {
+                        "number": 1,
+                        "name": "Vegetable Chow mein",
+                        "description": "Loaded with fresh vegetables and with Chinese seasonings such as dark soy sauce and toasted sesame oil.",
+                        "price": 5.25,
+                        "rice": [
+                            "White",
+                            "Fried",
+                            "Pork Fried Rice"
+                        ],
+                        "side": [
+                            "Hot & Sour Soup",
+                            "Chicken Noodle Soup",
+                            "Egg Drop Soup",
+                            "Chicken Egg Roll"
+                        ],               
+                        "meat": null,
+                        "img-src": "menu-img/veg-chow-mein.jpg"
+                    },
+                    {
+                        "number": 12,
+                        "name": "Chicken or Roast Pork Lo Mein",
+                        "description": "Loaded with fresh vegetables and with Chinese seasonings such as dark soy sauce and toasted sesame oil.",
+                        "price": 5.70,
+                        "rice": [
+                            "White",
+                            "Fried",
+                            "Pork Fried Rice"
+                        ],
+                        "side": [
+                            "Hot & Sour Soup",
+                            "Chicken Noodle Soup",
+                            "Egg Drop Soup",
+                            "Chicken Egg Roll"
+                        ],  
+                        "meat": [
+                            "Pork",
+                            "Chicken"
+                        ],
+                        "img-src": "menu-img/chicken-pork-lo-mein.jpg"
+                    },
+                    {
+                        "number": 28,
+                        "name": "Hunan Shrimp",
+                        "description": "Shrimp marinated with hunan-styled sauce served with steamed vegetables.",
+                        "price": 6.55,
+                        "rice": [
+                            "White",
+                            "Fried",
+                            "Pork Fried Rice"
+                        ],
+                        "side": [
+                            "Hot & Sour Soup",
+                            "Chicken Noodle Soup",
+                            "Egg Drop Soup",
+                            "Chicken Egg Roll"
+                        ],  
+                        "meat": null,
+                        "img-src": "menu-img/hunan-shrimp.jpg"
+                    },
+                    {
+                        "number": 8,
+                        "name": "Pepper Steak",
+                        "description": "Fried steak served with cooked onions and green peppers",
+                        "price": 5.95,
+                        "rice": [
+                            "White",
+                            "Fried",
+                            "Pork Fried Rice"
+                        ],
+                        "side": [
+                            "Hot & Sour Soup",
+                            "Chicken Noodle Soup",
+                            "Egg Drop Soup",
+                            "Chicken Egg Roll"
+                        ],  
+                        "meat": null,
+                        "img-src": "menu-img/pepper-steak.jpg"
+                    }
+                ]            
             },
-            "chicken-or-pork-lo-mein": {
-                "number": 12,
-                "name": "Chicken or Roast Pork Lo Mein",
-                "description": "Loaded with fresh vegetables and with Chinese seasonings such as dark soy sauce and toasted sesame oil.",
-                "price": 5.70,
-                "rice": ["White","Fried","Pork Fried Rice"],
-                "side": ["Hot & Sour Soup", "Chicken Noodle Soup", "Egg Drop Soup", "Chicken Egg Roll"],  
-                "meat": ["Pork", "Chicken"],
-                "img-src": "menu-img/chicken-pork-lo-mein.jpg"
-            },
-            "hunan-shrimp": {
-                "number": 28,
-                "name": "Hunan Shrimp",
-                "description": "Shrimp marinated with hunan-styled sauce served with steamed vegetables.",
-                "price": 6.55,
-                "rice": ["White","Fried","Pork Fried Rice"],
-                "side": ["Hot & Sour Soup", "Chicken Noodle Soup", "Egg Drop Soup", "Chicken Egg Roll"],  
-                "meat": null,
-                "img-src": "menu-img/hunan-shrimp.jpg"
-            },
-            "pepper-steak": {
-                "number": 8,
-                "name": "Pepper Steak",
-                "description": "Fried steak served with cooked onions and green peppers",
-                "price": 5.95,
-                "rice": ["White","Fried","Pork Fried Rice"],
-                "side": ["Hot & Sour Soup", "Chicken Noodle Soup", "Egg Drop Soup", "Chicken Egg Roll"],  
-                "meat": null,
-                "img-src": "menu-img/pepper-steak.jpg"
+            "special-combo-platter":{
+                "cat-name": "Special Combination Platter",
+                "description": "Stuff about special combo platter",
+                "items": [
+                    
+                ]
             }
-        }
+        }                  
     }
 }

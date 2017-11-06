@@ -34,12 +34,8 @@
         <!--Firebase Vers. 4.6.0-->
         <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 
-        <!--JS File for listing items-->
-        <script src="js/list-items.js" type="text/javascript"></script>
-        <!--JS File for displaying order dialog boxes-->
-        <script src="js/item-dialogs.js" type="text/javascript"></script>
-        <!--JS File for validation-->
-        <script src="js/order-validation.js" type="text/javascript"></script>
+
+        <script src="js/ordering.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container-fluid" >
@@ -154,39 +150,23 @@
                         </li>
                     </ul>
                 </nav>
-                <div id="items-content" class="col-sm-12 col-md-9">                                        
-                    <h4 id="cat-info" class="category-info col-md-10 col-sm-10"></h4>
+                <div class="col-sm-12 col-md-9">                                        
+                    <h4 id="lunch-specials-info" class="category-info col-md-10 col-sm-10">
+                        Lunch specials are the perfect way to have lunch. Each lunch 
+                        comes with a choice of rice (white, fried, and pork fried), and
+                        a choice of side (Egg roll or soup).
+                        <br>
+                        Available Open to 3:00pm
+                    </h4>
+                    <h4 hidden="hidden" id="special-combo-platter-info" class="category-info">
+                        Special combo platter
+                    </h4>
+                    <h4 id="chefs-specialties-info" hidden="hidden" class="category-info">
+                        chefs specialties
+                    </h4>
+
+                    <p id="items-description"></p>
                     <ul id="items"></ul>    
-                    <!--to display items-->
-                    <div id="card-template" class="card col-md-3 col-xs-12 col-sm-3 menu-card text-center" style="width: 20rem; display: none;">
-                        <br><img class="card-img-top img-responsive img-thumbnail menu-img modal-content" src="" alt="none">
-                        <div class="card-block">
-                            <h4 class="card-title">
-
-                            </h4>
-                            <p class="card-text"></p>
-                            <a href="#" class="btn btn-default add-btn">Add</a>
-                        </div>
-                    </div>
-                    <div id="add-item" title="Add to Your Order">
-                        <form id="item-form">
-                            <fieldset>         
-
-                                <label for="name">
-                                    How many do you want?
-                                </label>
-                                <br>
-                                <input type="number" name="qty" id="qty" value="1" min="1" max="5" class="text ui-widget-content ui-corner-all" required>
-                                <br>
-                                <label for="name">
-                                    Who is this item for?
-                                </label>
-                                <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all" required>
-                                <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-                            </fieldset>
-                        </form>
-                    </div>
 
                 </div>                
             </div>                             

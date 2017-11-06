@@ -181,3 +181,11 @@ body{
 .nav-link{
     padding: 5px !important;
 }
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+.text{
+    background-color: white;
+}
