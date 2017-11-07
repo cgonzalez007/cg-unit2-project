@@ -4,7 +4,7 @@ $(function () {
     var $meatOption = $('#meat');
     var $sideOption = $('#side');
     var $additionalOption = $('.additional-option');
-    
+
     var $meatOptionTemplate = $('#meat-option-template');
     var $sideOptionTemplate = $('#side-option-template');
     var $riceOptionTemplate = $('#rice-option-template');
@@ -17,7 +17,10 @@ $(function () {
         modal: true,
         buttons: {
             "Add": function () {
-                $($itemDialog).submit();
+                addItemToOrder();
+                $itemDialog.dialog("close");
+                $('.non-template').remove();
+                $additionalOption.hide();
             }, "Cancel": function () {
                 $itemDialog.dialog("close");
                 $('.non-template').remove();
@@ -36,34 +39,39 @@ $(function () {
     $(document).on('click', "a.lunch-special.add-btn", function (e) {
         var query1 = firebase.database().ref("site/categories/lunch-specials");
         query1.on("value", function (snapshot) {
-            
+            //set item category, item number, and item name in hidden input values
+            $('#item-category').val(snapshot.key);
+            $('#item-name').val(snapshot.child("items").child(e.target.id).child("name").val());
+            $('#item-price').val(snapshot.child("items").child(e.target.id).child("price").val());
+            $('#item-number').val(e.target.id);
+
             if (snapshot.child("rice").val() !== null) {
                 $riceOption.show();
                 snapshot.child("rice").forEach(function (option) {
-                    var newOption = $riceOptionTemplate.clone().switchClass('template','non-template');
-                    newOption.find("input").val(option.val()).after('<label>&nbsp;'+ option.val() +'</label>');
+                    var newOption = $riceOptionTemplate.clone().switchClass('template', 'non-template').removeAttr('id');
+                    newOption.find("input").val(option.val()).after('<label>&nbsp;' + option.val() + '</label>');
                     $riceOption.append(newOption.show());
                 });
             }
-            
+
             if (snapshot.child("items").child(e.target.id).child("meat").val() !== null) {
                 $meatOption.show();
                 snapshot.child("items").child(e.target.id).child("meat").forEach(function (option) {
-                    var newOption = $meatOptionTemplate.clone().switchClass('template','non-template');
-                    newOption.find("input").val(option.val()).after('<label>&nbsp;'+ option.val() +'</label>');
+                    var newOption = $meatOptionTemplate.clone().switchClass('template', 'non-template').removeAttr('id');
+                    newOption.find("input").val(option.val()).after('<label>&nbsp;' + option.val() + '</label>');
                     $meatOption.append(newOption.show());
                 });
             }
-            
+
             if (snapshot.child("sides").val() !== null) {
                 $sideOption.show();
                 snapshot.child("sides").forEach(function (option) {
-                    var newOption = $sideOptionTemplate.clone().switchClass('template','non-template');
-                    newOption.find("input").val(option.val()).after('<label>&nbsp;'+ option.val() +'</label>');
+                    var newOption = $sideOptionTemplate.clone().switchClass('template', 'non-template').removeAttr('id');
+                    newOption.find("input").val(option.val()).after('<label>&nbsp;' + option.val() + '</label>');
                     $sideOption.append(newOption.show());
                 });
             }
-            
+
         });
         $itemDialog.dialog("open");
         return false;
@@ -92,4 +100,53 @@ $(function () {
         $itemDialog.dialog("open");
         return false;
     });
+    
+//    // for testing purposes
+//    Cookies.remove("items");
+    
+    console.log(Cookies.getJSON("items"));
+    
 });
+
+function addItemToOrder() {
+
+    var addedItem = {
+        "itemNumber": $("#item-number").val(),
+        "itemName": $("#item-name").val(),
+        "itemCategory": $("#item-category").val(),
+        "itemPrice": $("#item-price").val(),
+        "rice": $('input[name=rice-option]:checked').val() !== undefined ? $('input[name=rice-option]:checked').val() : "na",
+        "meat": $('input[name=meat-option]:checked').val() !== undefined ? $('input[name=meat-option]:checked').val() : "na",
+        "side": $('input[name=side-option]:checked').val() !== undefined ? $('input[name=side-option]:checked').val() : "na",
+        "size": $('input[name=size-option]:checked').val() !== undefined ? $('input[name=size-option]:checked').val() : "na",
+        "qty": $('#qty').val(),
+        "name": $("#name").val(),
+        "comments": $("#comments").val()
+    };
+
+
+    if (Cookies.getJSON("items") === undefined) {
+        Cookies.set("items", [addedItem], {expires: 7});
+    } else {
+        var retrieved = Cookies.getJSON("items");
+        retrieved.push(addedItem);
+        Cookies.set("items", retrieved, {expires: 7});
+    }
+
+    // for testing purposes
+    console.log(Cookies.getJSON("items"));
+}
+
+////for reference
+//var blankOrder = {
+//    "items": [
+//
+//    ],
+//    "address": "",
+//    "city": "",
+//    "state": "",
+//    "zip": "",
+//    "firstName": "",
+//    "lastName": "",
+//    "timeReady": "" 
+//};

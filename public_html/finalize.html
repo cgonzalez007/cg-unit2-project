@@ -30,6 +30,8 @@
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <!--Firebase Vers. 4.6.0-->
         <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+        <!--JS Cookies v2.1.4-->
+        <script src="js/js.cookie.js" type="text/javascript"></script>
 
         <script src="js/finalize.js" type="text/javascript"></script>
     </head>
@@ -130,39 +132,34 @@
                         Continue as Guest
                     </a>
                 </div>
-            </div>
+            </div>                      
             <div id="order-info-step" hidden="hidden" class="jumbotron col-sm-12 step">
                 <h3>
-                    Just a Few Things Before We Place Your Order
+                    Just a few things before we place your order.
                 </h3>
                 <a href="#" class="go-back" id="back-to-login-register-anchor">
                     <i class="fa fa-arrow-left"></i>&nbsp; Go Back
                 </a>
                 <br>
                 <br>
-                <form id="order-info-form">
-                    <h4>
-                        Is this order for delivery or pick up?
-                    </h4>
-                    <fieldset class="form-group">
-                        <div class="form-check">                        
-                            <input type="radio" class="form-check-input" name="order-type" id="order-type-delivery" value="delivery">  
-                            <label  class="form-check-label">
-                                Delivery
-                            </label>
-                        </div>
-                        <div class="form-check">                        
-                            <input type="radio" class="form-check-input" name="order-type" id="order-type-pick-up" value="pick-up">  
-                            <label  class="form-check-label" >
-                                Pick up
-                            </label>
-                        </div>
-                    </fieldset>
+                <form id="payment-form">
                     <div class="form-group">
-                        <label for="pickup-deliver-date" class="h4">
-                            For what day would you like us to place your order?
+                        <label for="card-num" class="h4">
+                            Credit Card Number
                         </label>
-                        <input type="text" class="form-control" id="pickup-deliver-date">
+                        <input type="text" class="form-control" id="card-num" name="card-num" placeholder="credit card number">
+                    </div>
+                    <div class="form-group">
+                        <label for="expire-date" class="h4">
+                            Expire Date
+                        </label>
+                        <input type="text" class="form-control" id="expire-date" name="expire-date" placeholder="expire date">
+                    </div>
+                    <div class="form-group">
+                        <label for="security-code" class="h4">
+                            Security Code
+                        </label>
+                        <input type="text" class="form-control" id="security-code" name="security-code" placeholder="security code">
                     </div>
                     <label for="select-time" class="h4">
                         When would you like this food ready?
@@ -226,46 +223,28 @@
                         <option value="9:30 PM">9:30 PM</option>
                         <option value="9:45 PM">9:45 PM</option>
                     </select>
-                    <br>
-                    <button type="submit" id="continue-to-last-step-btn" class="btn btn-default">
-                        Continue to Last Step
-                    </button>
-                </form>
+                    <br>                    
+                    <a href="#" class="btn btn-default" id="review-order-btn">
+                        Review my Order
+                    </a>                    
+                </form>                                                
             </div>
-
             <div id="last-step" hidden="hidden" class="jumbotron col-sm-12 step">
                 <h3>
-                    Almost Done! We just need some payment information to place
-                    your order. 
+                    Almost done! Please take a second to review your order before placing it.
                 </h3>
                 <a href="#" class="go-back" id="back-to-order-info-anchor">
                     <i class="fa fa-arrow-left"></i>&nbsp; Go Back
                 </a>
                 <br>
                 <br>
-                <form id="payment-form">
-                    <div class="form-group">
-                        <label for="card-num" class="h4">
-                            Credit Card Number
-                        </label>
-                        <input type="text" class="form-control" id="card-num" name="card-num" placeholder="credit card number">
-                    </div>
-                    <div class="form-group">
-                        <label for="expire-date" class="h4">
-                            Expire Date
-                        </label>
-                        <input type="text" class="form-control" id="expire-date" name="expire-date" placeholder="expire date">
-                    </div>
-                    <div class="form-group">
-                        <label for="security-code" class="h4">
-                            Security Code
-                        </label>
-                        <input type="text" class="form-control" id="security-code" name="security-code" placeholder="security code">
-                    </div>
-                    <button type="submit" class="btn btn-default" id="place-order-btn">
-                        Place my Order!
-                    </button>                    
-                </form>                                                
+                <table id="items" class="table"></table>
+                <div id="total" class="h3"></div>
+                <br>
+                <br>
+                <a href="thank-you.html" class="btn btn-default" id="submit-order-btn">
+                    Submit my Order!
+                </a>
             </div>
         </div>
         <footer>

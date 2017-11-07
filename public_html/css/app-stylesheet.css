@@ -113,9 +113,7 @@ select{
 .navbar, .menu-card, .step{
     box-shadow: 5px 5px 3px grey;
 }
-.menu-img{
 
-}
 .add-btn{
     position: absolute;
     bottom: 10px;
@@ -126,21 +124,7 @@ select{
 .menu-img:hover {opacity: 0.8;}
 
 .menu-img:action{
-    
-}
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
 .category-info{
@@ -165,7 +149,7 @@ body{
     padding-bottom: 5px;
 }
 
-.go-back:hover,.go-back:focus{
+.go-back:hover,.go-back:focus, #back-to-home-anchor:hover,#back-to-home-anchor:focus{
     text-decoration: none;
 }
 
@@ -188,4 +172,8 @@ body{
 
 .text{
     background-color: white;
+}
+
+#items{
+    list-style: none;
 }
