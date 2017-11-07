@@ -18,68 +18,224 @@
                 "items": {
                     "1": {
                         "number": 1,
-                        "name": "Vegetable Chow mein",
-                        "description": "Loaded with fresh vegetables and with Chinese seasonings such as dark soy sauce and toasted sesame oil.",
+                        "name": "Vegetable Chow mein",                        
                         "price": 5.25,                             
                         "meat": null,
-                        "img-src": "menu-img/veg-chow-mein.jpg"
+                        "size": null,
+                        "img-src": "menu-img/lunch-specials/veg-chow-mein.jpg"
                     },
                     "12": {
                         "number": 12,
-                        "name": "Chicken or Roast Pork Lo Mein",
-                        "description": "Loaded with fresh vegetables and with Chinese seasonings such as dark soy sauce and toasted sesame oil.",
+                        "name": "Chicken or Roast Pork Lo Mein",                      
                         "price": 5.70,                        
                         "meat": [
                             "Pork",
                             "Chicken"
                         ],
-                        "img-src": "menu-img/chicken-pork-lo-mein.jpg"
+                        "size": null,
+                        "img-src": "menu-img/lunch-specials/chicken-pork-lo-mein.jpg"
                     },
                     "28": {
                         "number": 28,
-                        "name": "Hunan Shrimp",
-                        "description": "Shrimp marinated with hunan-styled sauce served with steamed vegetables.",
+                        "name": "Hunan Shrimp",                       
                         "price": 6.55,                        
                         "meat": null,
-                        "img-src": "menu-img/hunan-shrimp.jpg"
+                        "size": null,
+                        "img-src": "menu-img/lunch-specials/hunan-shrimp.jpg"
                     },
                     "8": {
                         "number": 8,
-                        "name": "Pepper Steak",
-                        "description": "Fried steak served with cooked onions and green peppers",
+                        "name": "Pepper Steak",         
                         "price": 5.95,                       
                         "meat": null,
-                        "img-src": "menu-img/pepper-steak.jpg"
+                        "size": null,
+                        "img-src": "menu-img/lunch-specials/pepper-steak.jpg"
                     }
                 }           
             },
             "special-combo-platters": {
                 "cat-name": "Special Combination Platters",
                 "description": "Try our special combination platters. Each Plate is served with pork fried rice and a pork egg roll.",
-                "items": [
-
-                ]
+                "sides": null,
+                "rice": null,
+                "items": {
+                    "1": {
+                        "number": 1,
+                        "name": "Chicken or Pork Chow Mein",         
+                        "price": 7.50,                       
+                        "meat": [
+                            "Pork",
+                            "Chicken"
+                        ],
+                        "size": null,
+                        "img-src": "menu-img/special-combo-platters/chicken-pork-chow-mein.jpg"
+                    },
+                    "19": {
+                        "number": 19,
+                        "name": "Sesame Chicken",         
+                        "price": 9.00,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/special-combo-platters/sesame-chicken.jpg"
+                    },
+                    "22": {
+                        "number": 22,
+                        "name": "Szechuan Chicken",         
+                        "price": 8.95,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/special-combo-platters/szechuan-chicken.jpg"
+                    },
+                    "23": {
+                        "number": 23,
+                        "name": "Hunan Chicken or Beef",         
+                        "price": 8.95,                       
+                        "meat": [
+                            "Beef",
+                            "Chicken"
+                        ],
+                        "size": null,
+                        "img-src": "menu-img/special-combo-platters/hunan-chicken-beef.jpg"
+                    },
+                    "24": {
+                        "number": 24,
+                        "name": "Kung Bo Chicken",         
+                        "price": 8.95,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/special-combo-platters/kung-bo-chicken.jpg"
+                    }
+                }
             },
             "chefs-specialties": {
                 "cat-name": "Chef's Specialties",
                 "description": "If you're feeding more than yourself, the chef's specialties are the way to go. Plenty of food, and perfect for sharing.",
-                "items": [
-
-                ]
+                "sides": null,
+                "rice": null,
+                "items": {
+                    "1": {
+                        "number": 1,
+                        "name": "Seafood Delight",         
+                        "price": 16.25,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/chefs-specialties/seafood-delight.jpg"
+                    },
+                    "2": {
+                        "number": 2,
+                        "name": "Happy Family",         
+                        "price": 12.75,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/chefs-specialties/happy-family.jpg"
+                    },
+                    "3": {
+                        "number": 3,
+                        "name": "Shrimp with Mixed Vegetables",         
+                        "price": 11.50,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/chefs-specialties/shrimp-mix-vegetables.jpg"
+                    },
+                    "14": {
+                        "number": 14,
+                        "name": "Coconut Shrimp",         
+                        "price": 11.55,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/chefs-specialties/coconut-shrimp.jpg"
+                    }
+                }
             },
             "appetizers": {
                 "cat-name": "Appetizers",
                 "description": "Not in the mood for a full course meal? Try one of our delicious appetizers!",
-                "items": [
-
-                ]
+                "sides": null,
+                "rice": null,
+                "items": {
+                    "1": {
+                        "number": 1,
+                        "name": "Pork Egg Roll",         
+                        "price": 1.60,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/appetizers/pork-egg-roll.jpg"
+                    },
+                    "2": {
+                        "number": 2,
+                        "name": "Chicken Egg Roll",         
+                        "price": 1.70,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/appetizers/chicken-egg-roll.jpeg"
+                    },
+                    "3": {
+                        "number": 3,
+                        "name": "Shrimp Egg Roll",         
+                        "price": 1.80,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/appetizers/shrimp-egg-roll.jpg"
+                    },
+                    "11": {
+                        "number": 11,
+                        "name": "Fried Chicken Wings (8)",         
+                        "price": 6.00,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/appetizers/fried-chicken-wings.jpeg"
+                    },
+                    "12": {
+                        "number": 12,
+                        "name": "Crabmeat Rangoon (6)",         
+                        "price": 4.50,                       
+                        "meat": null,
+                        "size": null,
+                        "img-src": "menu-img/appetizers/crabmeat-rangoon.jpg"
+                    }
+                    
+                }
             },
             "soups": {
                 "cat-name": "Soups",
-                "description": "You cannot go wrong with a freshly-prepared soup to go with your meal. The chefs at King's Wok do it best.",
-                "items": [
-
-                ]
+                "description": "You can't go wrong with a freshly-prepared soup to go with your meal. The chefs at King's Wok do it best.",
+                "sides": null,
+                "rice": null,
+                "items": {
+                    "15": {
+                        "number": 15,
+                        "name": "Wonton Soup",
+                        "price": 0.00,                        
+                        "meat": null,
+                        "size": {
+                            "Pint": 1.95,
+                            "Quart": 3.50
+                        },
+                        "img-src": "menu-img/soups/wonton-soup.jpg"
+                    },
+                    "16": {
+                        "number": 16,
+                        "name": "Egg Drop Soup",
+                        "price": 0.00,                        
+                        "meat": null,
+                        "size": {
+                            "Pint": 1.75,
+                            "Quart": 3.20
+                        },
+                        "img-src": "menu-img/soups/egg-drop-soup.jpg"
+                    },
+                    "18": {
+                        "number": 18,
+                        "name": "Hot and Sour Soup",
+                        "price": 0.00,                        
+                        "meat": null,
+                        "size": {
+                            "Pint": 2.45,
+                            "Quart": 4.50
+                        },
+                        "img-src": "menu-img/soups/hot-sour-soup.jpg"
+                    }
+                }
             }           
         }, 
         "orders": {

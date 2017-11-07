@@ -48,7 +48,7 @@ function populate(id, emptyCard) {
                     var newCard = emptyCard.clone().show().removeAttr('id');
 
                     newCard.find('img').attr("src", childSnapshot.child("img-src").val()).attr('alt', childSnapshot.child("name").val());
-                    newCard.find('h4.card-title').html('<br><b>' + childSnapshot.child("name").val() + ' ' + '(' + 'L.' + childSnapshot.child("number").val() + ')'
+                    newCard.find('h4.card-title').html('<br><b>' + childSnapshot.child("name").val() + ' ' + '(' + '#' + childSnapshot.child("number").val() + ')'
                             + '<br></b>$' + childSnapshot.child("price").val().toFixed(2));
                     newCard.append('<a href="#" id="' + childSnapshot.child("number").val() + '" class="btn btn-default add-btn">Add</a>');
                     
