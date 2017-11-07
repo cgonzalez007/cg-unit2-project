@@ -53,16 +53,37 @@
                     }
                 }           
             },
-            "special-combo-platter": {
-                "cat-name": "Special Combination Platter",
-                "description": "Stuff about special combo platter",
+            "special-combo-platters": {
+                "cat-name": "Special Combination Platters",
+                "description": "Try our special combination platters. Each Plate is served with pork fried rice and a pork egg roll.",
                 "items": [
 
                 ]
-            }
+            },
+            "chefs-specialties": {
+                "cat-name": "Chef's Specialties",
+                "description": "If you're feeding more than yourself, the chef's specialties are the way to go. Plenty of food, and perfect for sharing.",
+                "items": [
+
+                ]
+            },
+            "appetizers": {
+                "cat-name": "Appetizers",
+                "description": "Not in the mood for a full course meal? Try one of our delicious appetizers!",
+                "items": [
+
+                ]
+            },
+            "soups": {
+                "cat-name": "Soups",
+                "description": "You cannot go wrong with a freshly-prepared soup to go with your meal. The chefs at King's Wok do it best.",
+                "items": [
+
+                ]
+            }           
         }, 
         "orders": {
-            
+
         }
     }
 }

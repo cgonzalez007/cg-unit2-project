@@ -3,11 +3,14 @@ $(function () {
     var $riceOption = $('#rice');
     var $meatOption = $('#meat');
     var $sideOption = $('#side');
+    var $sizeOption = $('#size');
+    
     var $additionalOption = $('.additional-option');
 
     var $meatOptionTemplate = $('#meat-option-template');
     var $sideOptionTemplate = $('#side-option-template');
     var $riceOptionTemplate = $('#rice-option-template');
+    var $sizeOptionTemplate = $('#size-option-template');
 
     /*Configurations for item dialog box*/
     var $itemDialog = $("#add-item").dialog({
@@ -34,10 +37,10 @@ $(function () {
         }
     });
     /**
-     * For "Lunch special items:"
+     * 
      */
-    $(document).on('click', "a.lunch-special.add-btn", function (e) {
-        var query1 = firebase.database().ref("site/categories/lunch-specials");
+    $(document).on('click', "a.add-btn", function (e) {
+        var query1 = firebase.database().ref("site/categories/" + $("#cat-type").val());
         query1.on("value", function (snapshot) {
             //set item category, item number, and item name in hidden input values
             $('#item-category').val(snapshot.key);
@@ -71,39 +74,22 @@ $(function () {
                     $sideOption.append(newOption.show());
                 });
             }
+            
+            if (snapshot.child("size").val() !== null) {
+                $sizeOption.show();
+                snapshot.child("size").forEach(function (option) {
+                    var newOption = $sizeOptionTemplate.clone().switchClass('template', 'non-template').removeAttr('id');
+                    newOption.find("input").val(option.val()).after('<label>&nbsp;' + option.key + ' for ' + option.val() + '</label>');
+                    $sizeOption.append(newOption.show());
+                });
+            }
 
         });
         $itemDialog.dialog("open");
         return false;
     });
-    /**
-     * For "Special Combo platter" items:"
-     */
-    $(document).on('click', "a.special-combo-platter.add-btn", function () {
-        var query1 = firebase.database().ref("site/categories/special-combo-platter");
-        query1.once("value")
-                .then(function (snapshot) {
-
-                });
-        $itemDialog.dialog("open");
-        return false;
-    });
-    /**
-     * For "Chef's Specialties" items:"
-     */
-    $(document).on('click', "a.chefs-specialties.add-btn", function () {
-        var query1 = firebase.database().ref("site/categories/special-combo-platter");
-        query1.once("value")
-                .then(function (snapshot) {
-                    $('#cat-info').html(snapshot.child("description").val());
-                });
-        $itemDialog.dialog("open");
-        return false;
-    });
     
-//    // for testing purposes
-//    Cookies.remove("items");
-    
+    //testing purposes...
     console.log(Cookies.getJSON("items"));
     
 });
@@ -132,21 +118,16 @@ function addItemToOrder() {
         retrieved.push(addedItem);
         Cookies.set("items", retrieved, {expires: 7});
     }
+    // resetting default inputs (name, qty, comments)
+    resetInputs();
 
     // for testing purposes
     console.log(Cookies.getJSON("items"));
+    
 }
-
-////for reference
-//var blankOrder = {
-//    "items": [
-//
-//    ],
-//    "address": "",
-//    "city": "",
-//    "state": "",
-//    "zip": "",
-//    "firstName": "",
-//    "lastName": "",
-//    "timeReady": "" 
-//};
+// reset default inputs (name, qty, comments)
+function resetInputs(){
+    $('#qty').val("1");
+    $("#name").val("");
+    $("#comments").val("");
+}

@@ -9,13 +9,19 @@ $(function () {
     var $card = $('#card-template');
 
     /*Show Lunch Specials initially*/
-    populate("lunch-specials", $card);
-    
-    $('.cat-link').click(function (e) {
+    populateLunchSpecials($card);
+
+    $('#lunch-specials').click(function (e) {
         emptyItemsContent();
-        populate(this.id, $card);
+        populateLunchSpecials($card);
     });
- 
+
+    $('#special-combo-platter').click(function (e) {
+        emptyItemsContent();
+        populateSpecialComboPlatters($card);
+    });
+    
+
 });
 
 function initFirebase() {
@@ -29,17 +35,20 @@ function initFirebase() {
         messagingSenderId: "302302304461"
     };
     firebase.initializeApp(config);
+
 }
 
-function populate(id, emptyCard) {   
-    $("#cat-type").val(id);
-    var query1 = firebase.database().ref("site/categories/"+ id);
+function populateLunchSpecials(emptyCard) {
+    
+    $('#cat-title').html('Lunch Specials');
+    
+    var query1 = firebase.database().ref("site/categories/lunch-specials");
     query1.once("value")
             .then(function (snapshot) {
-                $('#cat-info').html("<b>" + snapshot.child("cat-name").val() + "</b><br><br>" +  snapshot.child("description").val());
+                $('#cat-info').html(snapshot.child("description").val());
             });
 
-    var query2 = firebase.database().ref("site/categories/" + id + "/items");
+    var query2 = firebase.database().ref("site/categories/lunch-specials/items");
 
     query2.once("value")
             .then(function (snapshot) {
@@ -50,12 +59,21 @@ function populate(id, emptyCard) {
                     newCard.find('img').attr("src", childSnapshot.child("img-src").val()).attr('alt', childSnapshot.child("name").val());
                     newCard.find('h4.card-title').html('<br><b>' + childSnapshot.child("name").val() + ' ' + '(' + 'L.' + childSnapshot.child("number").val() + ')'
                             + '<br></b>$' + childSnapshot.child("price").val().toFixed(2));
-                    newCard.append('<a href="#" id="' + childSnapshot.child("number").val() + '" class="btn btn-default add-btn">Add</a>');
+                    newCard.append('<a href="#" id="' + childSnapshot.child("number").val() + '" class="btn btn-default add-btn lunch-special">Add</a>');
                     
                     $('#items').append(newCard);
 
 
                 });
+            });
+
+}
+
+function populateSpecialComboPlatters(emptyCard) {
+    var query1 = firebase.database().ref("site/categories/special-combo-platter");
+    query1.once("value")
+            .then(function (snapshot) {
+                $('#cat-info').html(snapshot.child("description").val());
             });
 
 }
