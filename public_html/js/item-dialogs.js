@@ -4,7 +4,7 @@ $(function () {
     var $meatOption = $('#meat');
     var $sideOption = $('#side');
     var $sizeOption = $('#size');
-    
+
     var $additionalOption = $('.additional-option');
 
     var $meatOptionTemplate = $('#meat-option-template');
@@ -12,7 +12,7 @@ $(function () {
     var $riceOptionTemplate = $('#rice-option-template');
     var $sizeOptionTemplate = $('#size-option-template');
 
-    /*Configurations for item dialog box*/
+    /*Configurations for item dialog box used for adding an item to an order*/
     var $itemDialog = $("#add-item").dialog({
         autoOpen: false,
         height: 620,
@@ -37,7 +37,10 @@ $(function () {
         }
     });
     /**
+     * Add an item to an order. Based on current item category set, this event handler will 
+     * Set the appropriate fields required for adding an item to one's order (rice, side, meat)
      * 
+     * NOTE: Size currently not configured
      */
     $(document).on('click', "a.add-btn", function (e) {
         var query1 = firebase.database().ref("site/categories/" + $("#cat-type").val());
@@ -74,26 +77,29 @@ $(function () {
                     $sideOption.append(newOption.show());
                 });
             }
-            
-            if (snapshot.child("size").val() !== null) {
-                $sizeOption.show();
-                snapshot.child("size").forEach(function (option) {
-                    var newOption = $sizeOptionTemplate.clone().switchClass('template', 'non-template').removeAttr('id');
-                    newOption.find("input").val(option.val()).after('<label>&nbsp;' + option.key + ' for ' + option.val() + '</label>');
-                    $sizeOption.append(newOption.show());
-                });
-            }
+            // Sizing not configured yet... 11/7
+//            if (snapshot.child("size").val() !== null) {
+//                $sizeOption.show();
+//                snapshot.child("size").forEach(function (option) {
+//                    var newOption = $sizeOptionTemplate.clone().switchClass('template', 'non-template').removeAttr('id');
+//                    newOption.find("input").val(option.val()).after('<label>&nbsp;' + option.key + ' for ' + option.val() + '</label>');
+//                    $sizeOption.append(newOption.show());
+//                });
+//            }
 
         });
         $itemDialog.dialog("open");
         return false;
     });
-    
+
     //testing purposes...
     console.log(Cookies.getJSON("items"));
-    
-});
 
+});
+/**
+ * Add item to an order (Storing in Cookie), based on current inputs on item form
+ * @returns 
+ */
 function addItemToOrder() {
 
     var addedItem = {
@@ -123,11 +129,42 @@ function addItemToOrder() {
 
     // for testing purposes
     console.log(Cookies.getJSON("items"));
-    
+
 }
 // reset default inputs (name, qty, comments)
-function resetInputs(){
+function resetInputs() {
     $('#qty').val("1");
     $("#name").val("");
     $("#comments").val("");
+}
+/**
+ * First vers of function for deleting an item stored in the browser for order
+ * items.
+ * @param {type} indexToDelete index value to be used for deleting the item in the array that 
+ * gets stored as a cookie.
+ * @returns {undefined}
+ */
+function deleteItemFromOrder(indexToDelete) {
+    var retrievedItems = Cookies.getJSON("items");
+
+    retrievedItems.forEach(function (item, index) {
+        if (index === indexToDelete) {
+            delete retrievedItems[index];
+        }
+    });
+
+    var newItems = [];
+
+    retrievedItems.forEach(function (item, index) {
+        if (retrievedItems[index] !== null) {
+            newItems.push(retrievedItems[index]);
+        }
+    });
+    // Check if nothing as been added (All items deleted)
+    if (newItems[0] !== undefined) {
+        Cookies.set("items", newItems, {expires: 7});
+    } else {
+        Cookies.remove("items");
+    }
+
 }

@@ -1,12 +1,17 @@
 $(function () {
-
+    /**
+     * Navigation
+     */
     $('#continue-guest-btn').on('click', function () {
         $('#login-register-step').fadeOut(500, function () {
             $('#order-info-step').fadeIn(1500);
         });
 
     });
-
+    /**
+     * The "Last Step" will have the user confirm the items included in the 
+     * order. 
+     */
     $('#review-order-btn').on('click', function () {
         $('#order-info-step').fadeOut(500, function () {
             $('#last-step').fadeIn(1500);

@@ -1,7 +1,10 @@
 $(function () {
     initFirebase();
 });
-
+/**
+ * Initialize Firebase
+ * @returns {undefined}
+ */
 function initFirebase() {
 // Initialize Firebase
     var config = {

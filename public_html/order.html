@@ -83,10 +83,14 @@
                     </nav>
                     <!--End Navbar-->
                     <h2>
-                        &nbsp;<span class="hidden-xs">Menu</span>   
+                        &nbsp;<span class="hidden-xs">Menu</span>  
+                        <a href="#" id="see-order-btn" class="btn btn-default">
+                            See my Order                      
+                        </a>
                         <a href="finalize.html" id="im-done-btn" class="btn btn-default">
                             I'm done!                       
-                        </a>
+                        </a>                                              
+                        <br>
                     </h2>
                     <br>
                 </div> 
@@ -105,10 +109,10 @@
                         <li class="nav-item">
                             <a class="nav-link menu-nav cat-link" href="#" id="appetizers">Appetizers</a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link menu-nav cat-link" href="#" id="soups">Soups</a>
                         </li>
-                        <!--<li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link menu-nav" href="#" id="side-orders">Side Orders</a>
                         </li>
                         <li class="nav-item">
@@ -160,7 +164,7 @@
                 </nav>
                 <div id="items-content" class="col-sm-12 col-md-9">    
                     <input type="hidden" id="cat-type" value="">
-                    <h4 id="cat-info" class="category-info col-md-10 col-sm-10"></h4>
+                    <h4 id="cat-info" class="category-info col-lg-12 col-md-10 col-sm-10"></h4>
                     <ul id="items"></ul>    
                     <!--to display items-->
                     <div id="card-template" class="card col-md-3 col-xs-12 col-sm-3 menu-card text-center" style="width: 20rem; display: none;">
@@ -171,6 +175,10 @@
                             </h4>
                             <p class="card-text"></p>                            
                         </div>
+                    </div>
+                    <div id="see-order" title="Your Order">
+                        <ul id="my-items">                            
+                        </ul>                        
                     </div>
                     <div id="add-item" title="Add to Your Order">
                         <form id="item-form">
@@ -205,7 +213,8 @@
                                         <br>   
                                     </div>         
                                 </div>
-                                <div id="size" class="additional-option" style="display: none;">
+                                <!--Sizing not configured yet.. 11/7-->
+                                <!--<div id="size" class="additional-option" style="display: none;">
                                     <h4>
                                         Size 
                                     </h4>
@@ -213,7 +222,7 @@
                                         <input type="radio" name="size-option"  value="" class="text ui-widget-content ui-corner-all" required>                                                                      
                                         <br>   
                                     </div>         
-                                </div>
+                                </div>-->
                                 <br>
                                 <label for="qty">
                                     How many do you want?

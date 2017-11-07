@@ -131,10 +131,16 @@ select{
     padding-left: 45px;
 }
 
-#im-done-btn{
-    position: absolute;
-    right: 150px;
+#im-done-btn, #see-order-btn{
+    position: absolute;    
     font-family: 'Montserrat', sans-serif !important;
+}
+#im-done-btn{
+    right: 50px;
+}
+
+#see-order-btn{
+    right: 150px;
 }
 
 #header{
@@ -177,3 +183,16 @@ body{
 #items{
     list-style: none;
 }
+
+.carousel,
+.carousel-inner {
+  max-width: 100%;
+}
+
+.item {
+  max-width: 100%;
+}
+.carousel-inner img {
+  margin: auto;
+}
+

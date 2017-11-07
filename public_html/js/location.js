@@ -1,7 +1,10 @@
 $(function () {
     initFirebase();
 });
-
+/**
+ * Initialize Firebase
+ * @returns {undefined}
+ */
 function initFirebase() {
     // Initialize Firebase
     var config = {
@@ -14,7 +17,10 @@ function initFirebase() {
     };
     firebase.initializeApp(config);
 }
-
+/**
+ * Initialize Google Map used for displaying location of restaurant
+ * @returns {undefined}
+ */
 function initMap() {
     var uluru = {lat: 43.0968, lng: -88.3494};
     var map = new google.maps.Map(document.getElementById('map'), {
